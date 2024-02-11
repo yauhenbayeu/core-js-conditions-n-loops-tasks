@@ -429,11 +429,11 @@ function rotateMatrix(matrix) {
 
   return rotateMatrix;
 }
-rotateMatrix([
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9],
-]);
+// rotateMatrix([
+//   [1, 2, 3],
+//   [4, 5, 6],
+//   [7, 8, 9],
+// ]);
 
 /**
  * Sorts an array of numbers in ascending order in place.
@@ -449,9 +449,26 @@ rotateMatrix([
  *  [2, 9, 5, 9]    => [2, 5, 9, 9]
  *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
  */
-function sortByAsc(/* arr */) {
-  throw new Error('Not implemented');
+function sortByAsc(arr) {
+  const sortedArr = arr;
+
+  for (let i = 0; i < sortedArr.length; i += 1) {
+    const current = sortedArr[i];
+    let prevInd = i - 1;
+
+    while (sortedArr[prevInd] > current) {
+      sortedArr[prevInd + 1] = sortedArr[prevInd];
+      prevInd -= 1;
+    }
+    sortedArr[prevInd + 1] = current;
+  }
+  return sortedArr;
 }
+// function sortByAsc(/* arr */) {
+//   throw new Error('Not implemented');
+// }
+
+// sortByAsc([-2, 9, 5, -3]);
 
 /**
  * Shuffles characters in a string so that the characters with an odd index are moved to the end of the string at each iteration.
